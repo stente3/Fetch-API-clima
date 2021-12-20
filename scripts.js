@@ -30,7 +30,7 @@ function fetchAPI() {
 		});
 }
 function validator() {
-	if (city.value === "" || country.firstElementChild.value === "nan") {
+	if (city.value === "" || country.firstElementChild) {
 		/* Shows error message */
 		error.textContent = "Es necesario rellenar ambos formularios";
 		alertError.classList.remove("d-none");
