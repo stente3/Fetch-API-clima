@@ -11,12 +11,33 @@ body{
 *,*:before,*:after{ 
     box-sizing:inherit; 
 }
+/* Utilities */
+.container .font-3{
+    font-size: 3rem;
+    margin: 2.5rem;
+}
+.container .font-1-5{
+    font-size: 2rem;
+    margin: 1.5rem;
+}
+.br{
+    display: block;
+    margin: .5rem auto;
+}
+.weight{
+    font-weight: bold;
+}
+.d-none{
+    display: none;
+}
+
 /* Main */
 .main{
     text-align: center;
 }
 .heading, .paragraph{
     color: white;
+    margin: 2.5rem auto;
 }
 /* Form */
 .form{
@@ -44,4 +65,24 @@ body{
     color: black;
     font-weight: 700;
     text-transform: uppercase;
+}
+/* form validation */
+.alert__error{
+    background-color: white;
+    margin: 1.5rem auto;
+    border-radius: 0.3rem;
+    width: 95%;
+}
+.error{
+    color: red;
+    text-align: center;
+    width: 100%;
+    display: block;
+    padding: 1rem;
+}
+@media (min-width: 768px) { 
+    .alert__error{
+        width: 50%;
+        max-width: 55rem;
+    }
 }
