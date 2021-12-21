@@ -2,10 +2,12 @@
 let city = document.querySelector("#city");
 let country = document.querySelector("#country");
 let sumit = document.querySelector(".submit");
-let container = document.querySelector(".container");
+let containerData = document.querySelector(".container");
 let paragraphContainer = document.querySelectorAll(".container p");
 let alertError = document.querySelector(".alert__error");
 let error = document.querySelector(".error");
+
+city.focus();
 
 /* Event Listeners */
 sumit.addEventListener("click", (event) => {
@@ -26,7 +28,7 @@ function fetchAPI() {
 	fetch(url)
 		.then((data) => data.json())
 		.then((data) => {
-			let {temp, temp_min, temp_max} = data.main;
+			informationValidator(data);
 		});
 }
 function validator() {
@@ -40,4 +42,34 @@ function validator() {
 	} else {
 		fetchAPI();
 	}
+}
+function informationValidator(data) {
+	/* Shows error message */
+	if (data.cod === "404") {
+		error.textContent = "Ciudad no encontrada";
+		alertError.classList.remove("d-none");
+		setTimeout(() => {
+			alertError.classList.add("d-none");
+		}, 5000);
+	} else {
+		removeChildren(containerData);
+		/* Shows the information */
+		let {temp, temp_min, temp_max} = data.main;
+		temp = KelvinToCelsius(temp);
+		temp_min = KelvinToCelsius(temp_min);
+		temp_max = KelvinToCelsius(temp_max);
+		containerData.innerHTML = `
+            <p class="font-3 weight"><span class="br">Clima en ${city.value}</span>${temp} &#8451;</p>
+            <p class="font-1-5">Max: ${temp_max} &#8451;</p>
+            <p class="font-1-5">Min: ${temp_min} &#8451;</p>
+        `;
+	}
+}
+function removeChildren(parent) {
+	while (parent.firstElementChild) {
+		parent.firstElementChild.remove();
+	}
+}
+function KelvinToCelsius(degrees) {
+	return parseInt(degrees - 273.15);
 }
