@@ -25,6 +25,7 @@ function fetchAPI() {
 	let countryKey = country;
 	let cityKey = city.value;
 	let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityKey},${countryKey}&appid=${apiKey}`;
+	spinner();
 	fetch(url)
 		.then((data) => data.json())
 		.then((data) => {
@@ -72,4 +73,24 @@ function removeChildren(parent) {
 }
 function KelvinToCelsius(degrees) {
 	return parseInt(degrees - 273.15);
+}
+function spinner() {
+	removeChildren(containerData);
+	let spinner = document.createElement("div");
+	spinner.classList.add("sk-circle");
+	spinner.innerHTML = `
+	<div class="sk-circle1 sk-child"></div>
+	<div class="sk-circle2 sk-child"></div>
+	<div class="sk-circle3 sk-child"></div>
+	<div class="sk-circle4 sk-child"></div>
+	<div class="sk-circle5 sk-child"></div>
+	<div class="sk-circle6 sk-child"></div>
+	<div class="sk-circle7 sk-child"></div>
+	<div class="sk-circle8 sk-child"></div>
+	<div class="sk-circle9 sk-child"></div>
+	<div class="sk-circle10 sk-child"></div>
+	<div class="sk-circle11 sk-child"></div>
+	<div class="sk-circle12 sk-child"></div>
+	`;
+	containerData.appendChild(spinner);
 }

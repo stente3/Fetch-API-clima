@@ -1,38 +1,41 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CSS -->
-    <link rel="stylesheet" href="./css/normalize.css">
-    <link rel="stylesheet" href="./css/styles.css">
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="./favicon.svg" type="image/x-icon">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- CSS -->
+		<link rel="stylesheet" href="./css/normalize.css" />
+		<link rel="stylesheet" href="./css/styles.css" />
+		<link rel="stylesheet" href="./css/spinkit.css" />
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="./favicon.svg" type="image/x-icon" />
 
-    <title>PROYECTO de Clima con Fetch API</title>
-</head>
-<body>
-    <main class="main">
-        <h1 class="heading">Busca el clima</h1>
-            <div class="container">
-                <p class="paragraph">Agrega tu ciudad y país, el resultado se mostrará aquí</p>
-        </div>
-        <!-- Form -->
-        <form class="form">
-            <input type="text" id="city" placeholder="Escribe tu ciudad">
-            <select id="country">
-                <option value="nan" selected disabled>-- Seleccione --</option>
-                <option value="USD" class="Estados-Unidos">Estados-Unidos</option>
-                <option value="CO" class="Colombia">Colombia</option>
-                <option value="ES" class="España">España</option>
-            </select>
-            <input type="submit" value="Enviar" class="submit">
-        </form>
-        <div class="alert__error d-none">
-            <p class="error"></p>
-        </div>
-    </main>
-    <script src="./scripts.js"></script>
-</body>
+		<title>PROYECTO de Clima con Fetch API</title>
+	</head>
+	<body>
+		<main class="main">
+			<h1 class="heading">Busca el clima</h1>
+			<div class="container">
+				<p class="paragraph">
+					Agrega tu ciudad y país, el resultado se mostrará aquí
+				</p>
+			</div>
+			<!-- Form -->
+			<form class="form">
+				<input type="text" id="city" placeholder="Escribe tu ciudad" />
+				<select id="country">
+					<option value="nan" selected disabled>-- Seleccione --</option>
+					<option value="USD" class="Estados-Unidos">Estados-Unidos</option>
+					<option value="CO" class="Colombia">Colombia</option>
+					<option value="ES" class="España">España</option>
+				</select>
+				<input type="submit" value="Enviar" class="submit" />
+			</form>
+			<div class="alert__error d-none">
+				<p class="error"></p>
+			</div>
+		</main>
+		<script src="./scripts.js"></script>
+	</body>
 </html>
